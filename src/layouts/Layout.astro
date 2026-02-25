@@ -6,6 +6,11 @@ const obj = {
   number: num,
   favorites: ["astro", "css", "js"]
 }
+/* const isVisible = true; */
+const isVisible = false;
+
+const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
+const data = await res.json();
 ---
 
 <!doctype html>
@@ -20,7 +25,33 @@ const obj = {
 	</head>
 	<body>
     <h1>{obj.favorites[1].toUpperCase()}</h1>
+    {
+      isVisible &&
+      <h2>{obj.favorites[2].toUpperCase()}</h2> /* hidden */
+    }
+    {
+      isVisible
+      ? <h2>{obj.favorites[2].toUpperCase()}</h2>
+      : <h2>{obj.favorites[0].toUpperCase()}</h2> /*astro*/
+    } 
+    <h2>{obj.favorites[isVisible ? [2] : [0]].toUpperCase()}</h2> <!-- same as above -->
 		<slot />
+
+    <ul>
+      {
+        obj.favorites.map(item => (
+          <li>{item}</li>
+        ))
+      }
+    </ul>
+
+    <ul>
+      {
+        data.map(post => (
+          <li>{post.title}</li>
+        ))
+      }
+    </ul>
 	</body>
 </html>
 
