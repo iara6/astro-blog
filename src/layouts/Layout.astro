@@ -1,3 +1,13 @@
+---
+const str = "Bob"
+const num = 1
+const obj = {
+  name: str,
+  number: num,
+  favorites: ["astro", "css", "js"]
+}
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,6 +19,7 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+    <h1>{obj.favorites[1].toUpperCase()}</h1>
 		<slot />
 	</body>
 </html>
