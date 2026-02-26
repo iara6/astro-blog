@@ -1,0 +1,23 @@
+---
+// component imports
+import MainHead from './MainHead.astro';
+
+/* interface Props {
+  title?: string;
+  description?: string;
+} */ //TS
+
+const { title = "My Astro Blog", description = "My musings about the Astro framework" } = Astro.props /* as Props */;
+
+/* const { title } = Astro.props; */
+
+---
+
+<!doctype html>
+<html lang="en">
+  <MainHead {title} {description} />
+<!--   <MainHead title={title} description={description} /> -->
+	<body>
+    <slot>Default Text</slot>
+	</body>
+</html>

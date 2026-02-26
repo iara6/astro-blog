@@ -11,6 +11,8 @@ const isVisible = false;
 
 const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
 const data = await res.json();
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +23,7 @@ const data = await res.json();
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
     <h1>{obj.favorites[1].toUpperCase()}</h1>
@@ -63,3 +65,4 @@ const data = await res.json();
 		height: 100%;
 	}
 </style>
+
