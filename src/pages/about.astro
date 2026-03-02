@@ -2,10 +2,31 @@
 // component imports
 import MainLayout from "../layouts/MainLayout.astro";
 
+import Link from "../components/Link.astro";
 ---
 
-<MainLayout title="About2" description="My About Page">
-  <p>hi from About</p>
+<MainLayout title="My Blog">
+  <section class="container about" aria-label="About me">
+    <img
+      src="/images/headshot.jpg"
+      alt="My headshot"
+      width="200"
+      height="330"
+    />
+    <div class="content">
+      <h1 class="h1">My Blog</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
+        maxime. Iusto, sunt nam recusandae modi est nihil fugiat. Quibusdam
+        molestias et aliquid nulla iure odit architecto officiis, doloribus
+        enim, vel adipisci! Accusamus architecto beatae praesentium quaerat
+        maxime vel, tempora possimus!
+      </p>
+      <Link
+        href="mailto:chris@codinginpublic.dev"
+        style="primary"
+        text="Contact Me"
+      />
+    </div>
+  </section>
 </MainLayout>
-
-<!-- <MainLayout /> -->
