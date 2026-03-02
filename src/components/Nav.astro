@@ -18,9 +18,26 @@ import navData from "../data/navData";
     <ul>
       { 
         navData.map(item => (
-          <Link text={item.name} style="primary" href={item.path}/>
+          <Link 
+            text={item.name} 
+            style="primary" 
+            href={item.path}
+            isFilled={false}
+            data-navLink
+          />
         ))
       }
     </ul>
   </div>
 </nav>
+
+<script>
+  import "../js/nav.js"
+</script>
+
+<!--  icon={
+          {
+            name: "ic:baseline-adb",
+            side:"left"
+          }
+        } -->
