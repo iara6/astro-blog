@@ -721,6 +721,12 @@ header .container {
   object-fit: cover;
 }
 
+.hero-image2 {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+
 @media (min-width: 1201px) {
   .hero-image {
     border-radius: 0.4em;

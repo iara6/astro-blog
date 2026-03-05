@@ -1,31 +1,34 @@
 ---
 // component imports
 import MainLayout from "../../layouts/MainLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const allPosts = await Astro.glob("./*.md"); /* deprecated !!*/
+
+/*!!! need to be changed to
+ const allPosts = Object.values(
+  import.meta.glob("./*.md", { eager: true })
+);  new-ish, same vite */
+
+/* import { getCollection } from "astro:content";
+const allPosts = await getCollection("blog"); 
+or even newer*/
 
 ---
 
-<MainLayout title="My blog">
-  <ul>
-    <li>
-      <a href="./post-1/">Post 1</a>
-    </li> 
-    <li>
-      <a href="./post-2/">Post 2</a>
-    </li>
-     <li>
-      <a href="./post-3/">Post 3</a>
-    </li>
-     <li>
-      <a href="./post-4/">Post 4</a>
-    </li>
-     <li>
-      <a href="./post-5/">Post 5</a>
-    </li>
-     <li>
-      <a href="./post-6/">Post 6</a>
-    </li>
-  </ul>
+<MainLayout title="My Blog">
+  <section class="container" aria-label="New Blog Posts">
+    <h1 class="h1">New Blog Posts</h1>
+    <div class="post-container">
+      {
+      allPosts.map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2"/>)
+      }
+    </div>
+  </section>
+
+  <!-- <PostCard frontmatter={allPosts[0].frontmatter} url={allPosts[0].url} tagType="h2"/> -->
 </MainLayout>
 
 <!-- <MainLayout /> -->
 
+<!-- #8 12-25' styles err -->
