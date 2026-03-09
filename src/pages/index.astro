@@ -8,10 +8,57 @@ const backgroundColor = "hsl(100, 50%, 50%)";
 
 /* const isRed = true; */
 
+import PostCard from "../components/PostCard.astro";
+import Link from "../components/Link.astro";
+
+// utils imports
+
+import { formatBlogPosts } from "../js/utils";
+
+const allPosts = await Astro.glob("./blog/*.md"); /* deprecated !!*/
+/*!!! need to be changed to
+ const allPosts = Object.values(
+  import.meta.glob("./*.md", { eager: true })
+);  new-ish, same vite */
+const formattedPosts = formatBlogPosts(allPosts, {
+ /*  filterOutDrafts: false,
+  filterOutFuturePosts: false,
+  sortByDate: false, */
+  limit: 3,
+});  // displays 3 posts
+
 ---
 
 <MainLayout title="My Blog">
-  <p>hi from Home</p>
+    <section class="container about" aria-label="About me">
+    <img
+      src="/images/headshot.jpg"
+      alt="My headshot"
+      width="200"
+      height="330"
+    />
+    <div class="content">
+      <h1 class="h1">My Blog</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
+        maxime. Iusto, sunt nam recusandae modi est nihil fugiat.
+      </p>
+      <Link
+        href="/about/"
+        style="secondary"
+        text="👋 About Me"
+      />
+    </div>
+  </section>
+   <section class="container" aria-label="New Blog Posts">
+    <h2 class="h1">New Blog Posts</h2>
+    <div class="post-container">
+      {
+      formattedPosts.map((post) => (
+        <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h3" />))
+      }
+    </div>
+  </section>
  <!--  <p class:list={["big", { red: isRed }]}>hi from Home</p> -->
 </MainLayout>
 <!-- <MainLayout /> -->

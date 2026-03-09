@@ -12,7 +12,14 @@ const allPosts = await Astro.glob("./*.md"); /* deprecated !!*/
  const allPosts = Object.values(
   import.meta.glob("./*.md", { eager: true })
 );  new-ish, same vite */
-const formattedPosts = formatBlogPosts(allPosts);
+const formattedPosts = formatBlogPosts(allPosts/* , {
+  filterOutDrafts: false,
+  filterOutFuturePosts: false,
+  sortByDate: false,
+  limit: 2,
+} */);  // displays 2 random posts not sorted by day
+
+
 /* import { getCollection } from "astro:content";
 const allPosts = await getCollection("blog"); 
 or even newer*/
@@ -24,7 +31,7 @@ or even newer*/
     <h1 class="h1">New Blog Posts</h1>
     <div class="post-container">
       {
-      allPosts.map((post) => (
+      formattedPosts.map((post) => (
         <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2" />))
       }
     </div>
