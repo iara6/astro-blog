@@ -1,6 +1,6 @@
 ---
 // utils imports
-import { slugify, formatDate } from "../js/utils"
+import { slugify, formatDate } from "../js/utils";
 
 // component imports
 import Link from "./Link.astro";
@@ -19,7 +19,7 @@ const { title, description, date, category, author, image } = frontmatter;
   <small>
     <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
   </small>
-  <a href={url} tabindex="-1">
+  <a href={url} aria-hidden="true" tabindex="-1">
     <img class="hero-image2" src={image.src} alt={image.alt}>
   </a>
   <div class="content">
@@ -38,6 +38,4 @@ const { title, description, date, category, author, image } = frontmatter;
       style="secondary"
     />
   </div>
-
-
 </article>

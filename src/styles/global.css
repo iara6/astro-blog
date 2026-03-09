@@ -25,12 +25,13 @@ h3,
 h4,
 h5,
 h6 {
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* variables inspired by https://open-props.style/ */
 :root {
   --_hue: 235;
+
   --bkg--light: var(--_hue) 25% 97%;
   --txt--light: var(--_hue) 40% 5%;
   --accent--light: var(--_hue) 55% 50%;
@@ -154,6 +155,7 @@ button {
   box-shadow: var(--shadow-md);
 }
 
+
 body {
   min-height: 100vh;
   display: grid;
@@ -179,56 +181,44 @@ body {
 .h4,
 .content :where(h1, h2, h3, h4) {
   font-weight: 700;
-  line-height: 1.1;
   line-height: var(--lh-1-1);
 }
 
 .h1 {
-  font-size: max(2.8rem, min(calc(2.31rem + 2.43vw), 4.2rem));
   font-size: var(--fs-2xl);
-  max-width: 20ch;
   max-width: var(--content-xs);
 }
 
 h1 span {
-  color: #3945c6;
   color: hsl(var(--accent));
 }
 
 .h2,
 .content h2 {
-  font-size: max(1.94rem, min(calc(1.69rem + 1.29vw), 2.69rem));
   font-size: var(--fs-xl);
-  max-width: 30ch;
   max-width: var(--content-sm);
 }
 
 .h3,
 .content h3 {
-  font-size: max(1.35rem, min(calc(1.22rem + 0.64vw), 1.72rem));
-  font-size: var(--fs-lg);
-  max-width: 45ch;
+  font-size: var(--fs-lg) !important;  /* /////// */
   max-width: var(--content-md);
 }
 
 .h4,
 .content h4 {
-  font-size: calc(max(1.13rem, min(calc(1.04rem + 0.43vw), 1.38rem)) * 0.85);
-  font-size: calc(var(--fs-md) * 0.85);
+  font-size: calc(var(--fs-md) * .85);
 }
 
 p {
-  max-width: 65ch;
   max-width: var(--content-lg);
 }
 
 small {
-  font-size: max(0.78rem, min(calc(0.75rem + 0.17vw), 0.88rem));
   font-size: var(--fs-sm);
 }
-
-.content ul,
-.content ol {
+/* ****************** */
+.content :is(ul, ol) {
   margin-left: 1.5em;
 }
 

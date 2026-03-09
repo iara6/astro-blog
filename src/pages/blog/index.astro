@@ -3,13 +3,16 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import PostCard from "../../components/PostCard.astro";
 
-const allPosts = await Astro.glob("./*.md"); /* deprecated !!*/
+// utils imports
 
+import { formatBlogPosts } from "../../js/utils";
+
+const allPosts = await Astro.glob("./*.md"); /* deprecated !!*/
 /*!!! need to be changed to
  const allPosts = Object.values(
   import.meta.glob("./*.md", { eager: true })
 );  new-ish, same vite */
-
+const formattedPosts = formatBlogPosts(allPosts);
 /* import { getCollection } from "astro:content";
 const allPosts = await getCollection("blog"); 
 or even newer*/
@@ -21,7 +24,8 @@ or even newer*/
     <h1 class="h1">New Blog Posts</h1>
     <div class="post-container">
       {
-      allPosts.map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2"/>)
+      allPosts.map((post) => (
+        <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2" />))
       }
     </div>
   </section>
@@ -30,5 +34,3 @@ or even newer*/
 </MainLayout>
 
 <!-- <MainLayout /> -->
-
-<!-- #8 12-25' styles err -->

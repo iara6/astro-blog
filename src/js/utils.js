@@ -14,3 +14,20 @@ export function formatDate(date) {
     timeZone: "UTC",
   })
 }
+
+export function formatBlogPosts(posts, {
+  filterOutDrafts = true,
+  filterOutFuturePosts = true,
+  sortByDate = true, 
+  limit = undefined
+} = {}) {
+  
+  const filteredPosts = posts.reduce((acc, post) => {
+    const { date, draft } = post.frontmatter;
+
+    if (filterOutDrafts && draft) return acc; // will pass an empty array if both are true
+
+    if (filterOutFuturePosts && new Date(date) > new Date()) return acc;
+
+  }, [])
+}
