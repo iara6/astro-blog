@@ -5,7 +5,7 @@ date: 2022-03-19
 author: Matt Foley
 image: {
   src: "/images/post-8.jpg",
-  alt: "A picture of a keyboard keys",
+  alt: "A picture of keyboard keys",
 }
 description: Is learning HTML still worth it? Let's find out.  
 draft: false
