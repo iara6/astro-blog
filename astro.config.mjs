@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 /* export default defineConfig({}); */
 
 export default defineConfig({
-  site: 'http://localhost:4322',
+  site: 'https://iara6.github.io/astro-blog/',
   integrations: [icon({
   }), sitemap()],
 });
