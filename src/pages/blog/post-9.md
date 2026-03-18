@@ -5,7 +5,7 @@ date: 2022-09-05
 author: Victoria Greenfelder
 image: {
   src: "/images/post-9.jpg",
-  alt: "A picture of a keybpard, headphones, an espresso and a notebook",
+  alt: "A picture of a keyboard, headphones, an espresso and a notebook",
 }
 description: You don’t have to be a tech expert to start blogging. With the right tools and a simple plan, you can turn your ideas into published posts faster than you might expect.
 draft: false

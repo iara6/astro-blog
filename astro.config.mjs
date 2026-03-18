@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 /* export default defineConfig({}); */
 
 export default defineConfig({
-  site: 'https://iara6.github.io/astro-blog/',
+  site: 'dazzling-test-blog.netlify.app',
   integrations: [icon({
   }), sitemap()],
 });

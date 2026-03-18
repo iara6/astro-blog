@@ -30,7 +30,7 @@ h6 {
 
 /* variables inspired by https://open-props.style/ */
 :root {
-  --_hue: 235;
+  --_hue: 220;
 
   --bkg--light: var(--_hue) 25% 97%;
   --txt--light: var(--_hue) 40% 5%;
