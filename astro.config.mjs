@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 /* export default defineConfig({}); */
 
 export default defineConfig({
-  site: 'dazzling-test-blog.netlify.app',
+  site: 'https://dazzling-test-blog.netlify.app/',
   integrations: [icon({
   }), sitemap()],
 });
